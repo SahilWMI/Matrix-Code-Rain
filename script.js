@@ -21,7 +21,9 @@ class Effect {
         this.symbols = [];
     }
     #initialize(){
-
+        for (let i = 0; i < this.colums.length; i++){
+            this.symbols[i] = new Symbol();
+        }
     }
 }
 
