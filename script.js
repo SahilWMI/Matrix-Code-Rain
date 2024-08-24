@@ -11,3 +11,16 @@ class Symbol {
 
     }
 }
+
+class Effect {
+    constructor(canvasWidth, canvasHeight){
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight
+        this.fontSize =25;
+        this.colums = this.columnWidth/this.fontSize;
+        this.symbols = [];
+    }
+    #initialize(){
+
+    }
+}
