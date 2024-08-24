@@ -24,3 +24,7 @@ class Effect {
 
     }
 }
+
+function animate(){
+
+}
