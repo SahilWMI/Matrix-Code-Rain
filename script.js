@@ -39,6 +39,9 @@ class Effect {
     }
 }
 
-function animate(){
+const effect = new Effect(canvas.width,canvas.height);
 
+function animate(){
+    ctx.font = effect.fontSize + 'px monospace';
+    effect.symbols.forEach(symbol => symbol.draw())
 }
