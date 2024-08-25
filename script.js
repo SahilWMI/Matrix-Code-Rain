@@ -34,7 +34,7 @@ class Effect {
         this.#initialize();
     }
     #initialize(){
-        for (let i = 0; i < this.colums.length; i++){
+        for (let i = 0; i < this.columns; i++){
             this.symbols[i] = new Symbol();
         }
     }
