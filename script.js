@@ -31,6 +31,7 @@ class Effect {
         this.fontSize =25;
         this.columns = this.columnWidth/this.fontSize;
         this.symbols = [];
+        this.#initialize();
     }
     #initialize(){
         for (let i = 0; i < this.colums.length; i++){
