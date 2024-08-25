@@ -13,7 +13,14 @@ class Symbol {
         this.canvasHeight;
     }
     draw(){
-
+        this.text = this.characters.charAt(Math.floor(Math.random()*this.characters.length));
+        context.fillStyle = '#0aff0a';
+        context.fillText(this.text, this.x * this.fontSize, this.y * this.fontSize);
+        if(this.y * this.fontSize > this.canvasHeight){
+            this.y = 0;
+        } else {
+            this.y += 1;
+        }
     }
 }
 
