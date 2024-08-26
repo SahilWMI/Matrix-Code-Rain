@@ -14,7 +14,6 @@ class Symbol {
     }
     draw(context){
         this.text = this.characters.charAt(Math.floor(Math.random()*this.characters.length));
-        context.fillStyle = '#0aff0a';
         context.fillText(this.text, this.x * this.fontSize, this.y * this.fontSize);
         if(this.y * this.fontSize > this.canvasHeight && Math.random() > 0.98){
             this.y = 0;
@@ -47,10 +46,19 @@ const nextFrame = 1000/fps;
 let timer = 0;
 
 function animate(timeStamp){
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.font = effect.fontSize + 'px monospace';
-    effect.symbols.forEach(symbol => symbol.draw(ctx));
+    const deltaTime = timeStamp - lastTime;
+    lastTime = timeStamp;
+    if(timer > nextFrame){
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#0aff0a';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.font = effect.fontSize + 'px monospace';
+        effect.symbols.forEach(symbol => symbol.draw(ctx));
+        timer = 0;
+    } else {
+        timer += deltaTime;
+    }
     requestAnimationFrame(animate);
 }
 
