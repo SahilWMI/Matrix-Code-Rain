@@ -16,7 +16,7 @@ class Symbol {
         this.text = this.characters.charAt(Math.floor(Math.random()*this.characters.length));
         context.fillStyle = '#0aff0a';
         context.fillText(this.text, this.x * this.fontSize, this.y * this.fontSize);
-        if(this.y * this.fontSize > this.canvasHeight){
+        if(this.y * this.fontSize > this.canvasHeight && Math.random() > 0.98){
             this.y = 0;
         } else {
             this.y += 1;
@@ -41,8 +41,12 @@ class Effect {
 }
 
 const effect = new Effect(canvas.width, canvas.height);
+let lastTime = 0;
+const fps = 30;
+const nextFrame = 1000/fps;
+let timer = 0;
 
-function animate(){
+function animate(timeStamp){
     ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.font = effect.fontSize + 'px monospace';
