@@ -71,7 +71,7 @@ function animate(timeStamp){
     requestAnimationFrame(animate);
 }
 
-animate();
+animate(0);
 
 window.addEventListener('resize', function(){
     canvas.width = window.innerWidth;
